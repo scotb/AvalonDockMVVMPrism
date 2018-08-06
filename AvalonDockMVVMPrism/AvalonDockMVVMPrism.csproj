@@ -35,7 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -52,12 +51,14 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
-
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\SampleDockWindowView.xaml.cs">
+      <DependentUpon>SampleDockWindowView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,44 +68,56 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\DockManagerViewModel.cs" />
+    <Compile Include="ViewModels\DockWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\SampleDockWindowViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\SampleDockWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
-
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit">
+      <Version>3.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>6.3.0</Version>
+    </PackageReference>
     <PackageReference Include="Prism.Unity" Version="6.3.0" />
+    <PackageReference Include="Prism.Wpf">
+      <Version>6.3.0</Version>
+    </PackageReference>
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
