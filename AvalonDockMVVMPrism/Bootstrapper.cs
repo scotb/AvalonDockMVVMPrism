@@ -1,8 +1,8 @@
 ﻿using AvalonDockMVVMPrism.Views;
-using System.Windows;
-using Prism.Modularity;
 using Microsoft.Practices.Unity;
+using Prism.Modularity;
 using Prism.Unity;
+using System.Windows;
 
 namespace AvalonDockMVVMPrism
 {
