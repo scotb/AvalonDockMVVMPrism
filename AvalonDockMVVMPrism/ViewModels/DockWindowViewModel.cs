@@ -3,6 +3,15 @@ using Prism.Logging;
 
 namespace AvalonDockMVVMPrism.ViewModels
 {
+    /// <summary>
+    /// ViewModel class for a document window.
+    /// </summary>
+    /// <remarks>
+    /// This class is not having it's properties properly bound by the MainWindow until it is removed
+    /// and added back via the Main Menu options at the top.  Closing the window directly does not
+    /// call into the close method, and none of the boolean properties are properly displayed until
+    /// the menu options are used to close and open the window.
+    /// </remarks>
     public abstract class DockWindowViewModel : ViewModelBase
     {
         private bool canClose;

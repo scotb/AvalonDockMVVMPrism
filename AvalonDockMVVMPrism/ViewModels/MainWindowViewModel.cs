@@ -22,16 +22,15 @@ namespace AvalonDockMVVMPrism.ViewModels
             DockManagerViewModel = container.Resolve<DockManagerViewModel>();
             MenuViewModel = container.Resolve<MenuViewModel>();
 
-            var documents = new List<DockWindowViewModel>();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 2; i++)
             {
                 var doc = container.Resolve<SampleDockWindowViewModel>();
+                DockManagerViewModel.Add(doc);
                 doc.Title = $"Sample {i}";
-                doc.CanClose = false;
-                documents.Add(doc);
+                doc.CanClose = true;
+                doc.IsClosed = false;
             }
-            DockManagerViewModel.AddRange(documents);
-            MenuViewModel.AddRange(documents);
+            MenuViewModel.AddRange(DockManagerViewModel.Documents);
         }
     }
 }
